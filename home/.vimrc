@@ -14,3 +14,5 @@ call vundle#end()
 syntax enable
 filetype plugin indent on
 
+source $VIMRUNTIME/mswin.vim
+behave mswin
