@@ -1,3 +1,3 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 updatevim
