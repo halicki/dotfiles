@@ -13,6 +13,7 @@ Plugin 'bogado/file-line'
 Plugin 'jlfwong/vim-mercenary'
 Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree.git'
 
 call vundle#end()
 
@@ -31,9 +32,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set mouse=a
-
-"http://stackoverflow.com/questions/6453595/prevent-vim-from-clearing-the-clipboard-on-exit
-"autocmd VimLeave * call system("xsel -ib", getreg('+'))
+set relativenumber
 
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -41,3 +40,6 @@ endif
 
 " ctags
 set tags=./tags;
+
+" NERDTree
+nmap <leader>k :NERDTreeToggle<cr>
