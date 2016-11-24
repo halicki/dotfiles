@@ -11,9 +11,10 @@ Plugin 'dag/vim-fish'
 Plugin 'tpope/vim-surround'
 Plugin 'bogado/file-line'
 Plugin 'jlfwong/vim-mercenary'
-Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'rking/ag.vim'
+Plugin 'Chun-Yang/vim-action-ag'
 
 call vundle#end()
 
@@ -34,9 +35,9 @@ set expandtab
 set mouse=a
 set relativenumber
 
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-endif
+" if executable('ag')
+"     let g:ackprg = 'ag --vimgrep'
+" endif
 
 " ctags
 set tags=./tags;
