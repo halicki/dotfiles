@@ -34,6 +34,8 @@ set shiftwidth=4
 set expandtab
 set mouse=a
 set relativenumber
+set cursorline
+set scrolloff=5
 
 " ctags
 set tags=./tags;
@@ -41,3 +43,5 @@ set tags=./tags;
 " NERDTree
 nmap <leader>k :NERDTreeToggle<cr>
 
+" CommandT
+let g:CommandTWildIgnore=&wildignore . "sbuild*"
