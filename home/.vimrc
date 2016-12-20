@@ -15,6 +15,7 @@ Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'wincent/command-t'
+Plugin 'vim-scripts/taglist.vim'
 
 call vundle#end()
 
@@ -45,3 +46,7 @@ nmap <leader>k :NERDTreeToggle<cr>
 
 " CommandT
 let g:CommandTWildIgnore=&wildignore . "sbuild*"
+let g:CommandTMaxFiles=300000
+
+" taglist
+nnoremap <silent> <leader>l :TlistToggle<CR>
