@@ -29,7 +29,7 @@ set smartcase
 set hlsearch
 set nowrap
 set number
-set cindent
+set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
