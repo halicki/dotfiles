@@ -7,7 +7,6 @@ set shell=bash
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'dag/vim-fish'
 Plugin 'bogado/file-line'
 Plugin 'jlfwong/vim-mercenary'
 Plugin 'scrooloose/nerdtree.git'
