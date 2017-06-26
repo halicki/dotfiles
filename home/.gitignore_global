@@ -1,0 +1,4 @@
+.sublime-grunt.cache
+configuration/agent/adminwww/skins/
+.venv
+*.swp
