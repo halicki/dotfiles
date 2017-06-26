@@ -8,14 +8,11 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bogado/file-line'
-Plugin 'jlfwong/vim-mercenary'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'rking/ag.vim'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
 Plugin 'wincent/command-t'
 Plugin 'vim-scripts/taglist.vim'
-Plugin 'shawncplus/skittles_berry'
 
 call vundle#end()
 
@@ -36,7 +33,6 @@ set expandtab
 set mouse=a
 set relativenumber
 set cursorline
-set scrolloff=3
 
 " FINDING FILES
 
@@ -70,3 +66,13 @@ nnoremap <silent> <leader>l :TlistToggle<CR>
 " HG
 nmap <leader>hb :HGblame<cr>
 nmap <leader>hs <Esc>yiw<cr>:HGshow"<cr>
+
+" Python
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix 
