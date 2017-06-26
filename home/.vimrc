@@ -11,8 +11,10 @@ Plugin 'bogado/file-line'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'wincent/command-t'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'junegunn/fzf'
 
 call vundle#end()
 
@@ -55,6 +57,7 @@ command! MakeTags !ctags
 
 " NERDTree
 nmap <leader>k :NERDTreeToggle<cr>
+nmap <leader>f :NERDTreeFind<cr>
 
 " CommandT
 let g:CommandTWildIgnore=&wildignore . "sbuild*"
@@ -62,10 +65,6 @@ let g:CommandTMaxFiles=300000
 
 " taglist
 nnoremap <silent> <leader>l :TlistToggle<CR>
-
-" HG
-nmap <leader>hb :HGblame<cr>
-nmap <leader>hs <Esc>yiw<cr>:HGshow"<cr>
 
 " Python
 au BufNewFile,BufRead *.py
@@ -76,3 +75,36 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix 
+
+" Splits
+" We can use different key mappings for easy navigation between splits to save 
+" a keystroke. So instead of ctrl-w then j, it’s just ctrl-j:
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Open new split panes to right and bottom, which feels more natural than Vim’s default:
+set splitbelow
+set splitright
+
+"Max out the height of the current split
+" ctrl+w _
+
+"Max out the width of the current split
+" ctrl+w |
+
+"Normalize all split sizes, which is very handy when resizing terminal
+" ctrl+w =
+
+"Swap top/bottom or left/right split
+" ctrl+W R
+
+"Break out current window into a new tabview
+" ctrl+W T
+
+"Close every window in the current tabview but the current one
+" ctrl+W o
+
+" FZF
+noremap <C-F> :FZF<cr>
