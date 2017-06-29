@@ -38,6 +38,9 @@ set mouse=a
 set relativenumber
 set cursorline
 
+" Leader
+let mapleader=","
+
 " FINDING FILES
 
 " Search down into subfolders
@@ -113,3 +116,6 @@ noremap <C-F> :FZF<cr>
 
 " Toggle quickFix window
 nmap <C-g><C-o> <Plug>window:quickfix:toggle
+
+" open ag.vim
+nnoremap <leader>a :Ag 
