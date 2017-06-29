@@ -12,9 +12,11 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'wincent/command-t'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'junegunn/fzf'
+Plugin 'drmingdrmer/vim-toggle-quickfix'
 
 call vundle#end()
 
@@ -108,3 +110,6 @@ set splitright
 
 " FZF
 noremap <C-F> :FZF<cr>
+
+" Toggle quickFix window
+nmap <C-g><C-o> <Plug>window:quickfix:toggle
