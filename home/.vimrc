@@ -18,14 +18,15 @@ Plugin 'vim-scripts/taglist.vim'
 Plugin 'junegunn/fzf'
 Plugin 'drmingdrmer/vim-toggle-quickfix'
 
+
 call vundle#end()
 
 syntax enable
 filetype plugin indent on
 " all related vundle -----
+"
 
 set incsearch
-set ignorecase
 set smartcase
 set hlsearch
 set nowrap
@@ -70,6 +71,9 @@ let g:CommandTMaxFiles=300000
 
 " taglist
 nnoremap <silent> <leader>l :TlistToggle<CR>
+
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html       setlocal shiftwidth=2 tabstop=2
 
 " Python
 au BufNewFile,BufRead *.py
