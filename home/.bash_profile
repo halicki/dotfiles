@@ -16,3 +16,5 @@
 #    . $(brew --prefix)/etc/bash_completion
 #fi
 #
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"

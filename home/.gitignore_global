@@ -2,3 +2,8 @@
 configuration/agent/adminwww/skins/
 .venv
 *.swp
+.idea/
+.python-version
+.cache/
+*.egg-info
+__pycache__

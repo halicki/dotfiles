@@ -56,11 +56,11 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+# if [ "$color_prompt" = yes ]; then
+#     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -116,11 +116,90 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Load pyenv automatically by adding
-# the following to ~/.bash_profile:
-export PATH="~/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# Apply custom bash promt appearance
+if [[ -f ~/.bash_prompt ]]; then
+  source ~/.bash_prompt
+fi
 
-source ~/.bash_prompt
+# Include Daftcode stuff
+if [[ -f ~/.daftcode.local ]]; then
+  source ~/.daftcode.local
+fi
+
+# FZF
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+#
+# Create some usefull aliases
+#
+alias d='docker-compose'
+alias ga='git add'
+alias gd='git diff'
+alias gg='git log --oneline --graph --all -30'
+alias ggg='git log --oneline --graph --all'
+alias gs='git status'
+#
+# Use a mc-wrapper
+#
+source /usr/share/mc/bin/mc.sh
+
+# -----------------------------------------------------------------------------
+# P Y T H O N
+# -----------------------------------------------------------------------------
+# Include user installed python stuff.
+export PATH=$PATH:/home/arkadiusz/.local/bin
+
+# Enable usage of pyenv tool.
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Pipenv completions
+#eval "$(pipenv --completion)"
+
+
+# -----------------------------------------------------------------------------
+# N O D E . J S
+# -----------------------------------------------------------------------------
+# Enable n - version manger
+#export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# Install ruby games in user-writable path
+#if which ruby >/dev/null && which gem >/dev/null; then
+#    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+#fi
+
+# -----------------------------------------------------------------------------
+# G O !
+# -----------------------------------------------------------------------------
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=~/go
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+
+# heroku autocomplete setup
+CLI_ENGINE_AC_BASH_SETUP_PATH=/home/arkadiusz/.cache/heroku/completions/bash_setup && test -f $CLI_ENGINE_AC_BASH_SETUP_PATH && source $CLI_ENGINE_AC_BASH_SETUP_PATH;
+
+# ranger stuff.
+
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+
+# This binds Ctrl-O to ranger-cd:
+bind '"\C-o":"ranger-cd\C-m"'
+
+# Clipboard
+alias clipboard='xclip -sel clip'
+
+# NVIM
+alias vim=nvim
 
