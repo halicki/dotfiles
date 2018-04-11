@@ -9,9 +9,16 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Python
+let g:python3_host_prog = '/home/arkadiusz/.pyenv/versions/3.6.5/envs/neovim/bin/python'
 
+" Python
 call plug#begin('~/.local/share/nvim/plugged')
-Plug '//nvie/vim-flake8'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'nvie/vim-flake8'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
+
+" Press F3 to toggle hl.
+nnoremap <F3> :set hlsearch! hlsearch?<CR>
 

@@ -200,6 +200,19 @@ bind '"\C-o":"ranger-cd\C-m"'
 # Clipboard
 alias clipboard='xclip -sel clip'
 
+
+
 # NVIM
 alias vim=nvim
 
+# LinuxBrew
+if [[ -d ~/.linuxbrew ]]; then
+	PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+fi
+
+if [[ -d /home/linuxbrew/.linuxbrew ]]; then
+	PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+fi
+
+# Editor
+export EDITOR=nvim
