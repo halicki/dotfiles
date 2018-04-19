@@ -9,8 +9,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+let g:python_host_prog = $HOME
+let g:python_host_prog .= '/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = $HOME
-let g:python3_host_prog .= '/.pyenv/versions/3.6.5/envs/neovim/bin/python'
+let g:python3_host_prog .= '/.pyenv/versions/neovim/bin/python'
 
 " Python
 call plug#begin('~/.local/share/nvim/plugged')
